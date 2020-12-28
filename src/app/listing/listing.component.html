@@ -1,0 +1,22 @@
+<table class="app-listing__data">
+  <tr>
+    <th></th>
+    <th>Coin</th>
+    <th>Price</th>
+    <th>24H High</th>
+    <th>24H Low</th>
+    <th>24H Change</th>
+    <th>ATH</th>
+  </tr>
+  <ng-container *ngIf="items$ | async as itemCollection">
+    <tr *ngFor="let coin of itemCollection">
+      <td><img style="max-width: 40px" src="{{coin.image}}"></td>
+      <td>{{coin.name}} ({{coin.symbol}})</td>
+      <td>{{coin.current_price | currency}}</td>
+      <td>{{coin.high_24h | currency}}</td>
+      <td>{{coin.low_24 | currency}}</td>
+      <td [coinIndicator]="coin.price_change_percentage_24h">{{coin.price_change_24h | currency}}({{coin.price_change_percentage_24h}}%)</td>
+      <td>{{coin.ath | currency}}</td>
+    </tr>
+  </ng-container>
+</table>
