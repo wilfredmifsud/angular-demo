@@ -1,9 +1,6 @@
 import { createSelector } from '@ngrx/store';
+import { AppState } from '../app.model';
 import { ListingState } from './listing.model';
-
-export interface AppState {
-  listing: ListingState;
-}
 
 export const listingState = (state: AppState) => state.listing;
 

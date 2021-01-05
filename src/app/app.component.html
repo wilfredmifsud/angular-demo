@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
-  <span>My App</span>
   <span class="example-spacer"></span>
   <nav mat-tab-nav-bar>
     <a mat-tab-link *ngFor="let link of links"
        (click)="onRouteChange(link.url)"> {{link.title}} </a>
   </nav>
 </mat-toolbar>
+<app-toast></app-toast>
 <router-outlet></router-outlet>

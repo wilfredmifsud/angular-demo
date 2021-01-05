@@ -1,6 +1,14 @@
-News{{items | json}}
-<div class="news-item" *ngFor="let item of items">
-  <img src="{{item.urlToImage}}" style="width: 200px">
-  <h1>{{item.title}}</h1>
-  <p>{{item.description}}</p>
-</div>
+<ng-container *ngIf="items?.length; else noData">
+  <div class="app-news__item" *ngFor="let item of items">
+    <img src="{{item.urlToImage}}" style="width: 200px">
+    <h1>{{item.title}}</h1>
+    <p>{{item.description}}</p>
+  </div>
+</ng-container>
+
+<ng-template #noData>
+  <div class="app-news__no-data">
+    <span class="material-icons app-news__no-data-icon"> highlight_off </span>
+    <h1>There are no crypto news right now</h1>
+  </div>
+</ng-template>

@@ -1,0 +1,35 @@
+@import "./../../../style/vars";
+
+.app-toast {
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    width: 20%;
+    min-width: 400px;
+    max-width: 90%;
+    color: $white;
+    border-radius: 5px;
+    background: rgba($primary-color, 0.8);
+
+    &--error {
+        background: rgba($error-color, 0.8);
+    }
+
+    &--success {
+        background: rgba($success-color, 0.8);
+    }
+
+    &__close {
+        position: absolute;
+        cursor: pointer;
+        padding: 10px;
+        top: 0;
+        right: 0;
+    }
+
+    &__container {
+        position: relative;
+        padding: 25px;
+        text-align: center;
+    }
+}

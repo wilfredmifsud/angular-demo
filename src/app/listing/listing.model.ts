@@ -21,3 +21,10 @@ export interface Coin {
   ath_change_percentage: number;
   ath_date: string;
 }
+
+
+export interface CoinUpdate {
+  coin: Coin,
+  differencePercent: number;
+  differenceAmount: number;
+}

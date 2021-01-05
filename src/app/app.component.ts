@@ -3,8 +3,9 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Subscription, timer } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { AppState } from './app.model';
 import { listingActions } from './listing/listing.actions';
-import { AppState } from './listing/listing.selector';
+import { sharedActions } from './shared/shared.actions';
 
 export interface MenuLinks {
   title: string;
@@ -20,7 +21,7 @@ export class AppComponent implements OnDestroy {
   refetch$$ = Subscription.EMPTY;
   links: MenuLinks[] = [
     {
-      title: 'home',
+      title: 'Home',
       url: '/',
     },
     {
@@ -34,7 +35,7 @@ export class AppComponent implements OnDestroy {
   ];
 
   constructor(private router: Router, private store: Store<AppState>) {
-    this.refetch$$ = timer(0, 300000)
+    this.refetch$$ = timer(0, 30000)
       .pipe(
         tap(() => this.store.dispatch({ type: listingActions.refetch }))
       )

@@ -10,12 +10,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ListingComponent } from './listing/listing.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { listingReducer } from './listing/listing.reducer';
-import { ListingEffects } from './listing/listing.effects';
 import { CoinIndicatorDirective } from '../directives/coin-indicator.directive';
 import { MatModule } from './mat.module';
 import { NewsComponent } from './news/news.component';
 import { HomeComponent } from './home/home.component';
+import { SharedModule } from './shared/shared.module';
+import { ListingEffects } from './listing/listing.effects';
+import { sharedReducer } from './shared/shared.reducer';
+import { listingReducer } from './listing/listing.reducer';
 
 @NgModule({
   declarations: [AppComponent, ListingComponent, CoinIndicatorDirective, NewsComponent, HomeComponent],
@@ -26,11 +28,15 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    StoreModule.forRoot({ listing: listingReducer }),
+    StoreModule.forRoot({ 
+      listing: listingReducer,
+      shared: sharedReducer
+     }),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([ListingEffects]),
     NoopAnimationsModule,
     MatModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,10 +2,11 @@ import * as _ from "lodash";
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, mergeMap, pairwise, tap } from 'rxjs/operators';
+import { catchError, filter, map, mergeMap, pairwise, tap } from 'rxjs/operators';
 import { ListingAction, listingActions, listingRefetchSuccess } from './listing.actions';
 import { ListingService } from './listing.service';
-import { Coin } from "./listing.model";
+import { Coin, CoinUpdate } from "./listing.model";
+import { ToastService } from "../shared/toast/toast.service";
 
 @Injectable({
   providedIn: 'root',
@@ -28,29 +29,35 @@ export class ListingEffects {
       this.actions$.pipe(
         ofType<ReturnType<typeof listingRefetchSuccess>>(listingActions.refetchSuccess),
         pairwise(),
-        tap(x => {
+        map(x => {
           const prev = x[0];
           const next = x[1];
-debugger;
+          const changes: CoinUpdate[] = [];
           prev.payload.map(prevCoin => {
             const updatedCoinData = next.payload.find(i => i.id===prevCoin.id);
+
             if(updatedCoinData && prevCoin.current_price !== updatedCoinData.current_price) {
-              const percentDiff = ((updatedCoinData.current_price - prevCoin.current_price)/prevCoin.current_price)*100;
-              if(percentDiff > 1) {
-                console.warn(">>>>>>>>>>>>>>>>>>>>>>> price changed for ", updatedCoinData.name,percentDiff, (updatedCoinData.current_price - prevCoin.current_price)) ;
-
-              } else {
-                console.warn(">>>>>>> minor >>>>>>>>>>>>>>>> price changed for ", updatedCoinData.name,percentDiff, (updatedCoinData.current_price - prevCoin.current_price)) ;
-
-              }
+              const amountDiff = updatedCoinData.current_price - prevCoin.current_price;
+              const percentDiff = (amountDiff/prevCoin.current_price)*100;
+              changes.push({
+                coin: updatedCoinData,
+                differencePercent: percentDiff,
+                differenceAmount: amountDiff                 
+              })            
             }
-          })
-        })
+          });
+          return changes;
+        }),
+        filter(x => !_.isEmpty(x)),
+        tap(() => this.toastService.reset()),
+        map(x => x.map(item => `${item.coin.name} (${item.coin.symbol.toUpperCase()}) has changed by ${item.differencePercent.toFixed(2)}%`)),
+        tap(x => this.toastService.setMessage(x.join('<br/> ')))
       ),
     { dispatch: false }
   );
   constructor(
     private actions$: Actions,
-        private moviesService: ListingService
+        private moviesService: ListingService,
+        private toastService: ToastService
   ) {}
 }

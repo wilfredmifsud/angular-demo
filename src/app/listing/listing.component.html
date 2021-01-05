@@ -15,7 +15,7 @@
       <td>{{coin.current_price | currency}}</td>
       <td>{{coin.high_24h | currency}}</td>
       <td>{{coin.low_24h | currency}}</td>
-      <td [coinIndicator]="coin.price_change_percentage_24h">{{coin.price_change_24h | currency}}({{coin.price_change_percentage_24h}}%)</td>
+      <td [coinIndicator]="coin.price_change_percentage_24h">{{coin.price_change_24h | currency}} ({{coin.price_change_percentage_24h | number}}%)</td>
       <td>{{coin.ath | currency}}</td>
     </tr>
   </ng-container>

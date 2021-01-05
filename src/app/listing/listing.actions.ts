@@ -1,5 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { TypedAction } from '@ngrx/store/src/models';
 import { Coin } from './listing.model';
 
 export const listingActions = {

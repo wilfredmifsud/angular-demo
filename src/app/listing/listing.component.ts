@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { listingActions } from './listing.actions';
+import { AppState } from '../app.model';
 import { Coin } from './listing.model';
-import { AppState, getAllListing } from './listing.selector';
+import { getAllListing } from './listing.selector';
 
 @Component({
   selector: 'app-listing',
