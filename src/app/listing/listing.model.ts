@@ -1,6 +1,5 @@
 export interface ListingState {
   list: Coin[],
-  editId: number | undefined
 }
 
 export interface Coin {

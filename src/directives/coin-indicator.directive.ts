@@ -15,7 +15,6 @@ constructor(
 
 }
   ngOnInit() {
-    debugger;
     if(this.amount > 0) {
       this.renderer.removeClass(this.el.nativeElement, "coin-indicator--down")
       this.renderer.addClass(this.el.nativeElement, "coin-indicator--up");
