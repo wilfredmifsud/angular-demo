@@ -1,22 +1,60 @@
 @import "./../../../style/vars";
 
+$app-toast-border-radius: 5px !default;
+$app-toast-color: $white !default;
+$app-toast-close-color: $white !default;
+
 .app-toast {
     position: fixed;
-    bottom: 3%;
-    right: 3%;
     width: 20%;
     min-width: 400px;
     max-width: 90%;
-    color: $white;
-    border-radius: 5px;
+    color: $app-toast-color;
+    border-radius: $app-toast-border-radius;
     background: rgba($primary-color, 0.8);
 
-    &--error {
-        background: rgba($error-color, 0.8);
+    &--type {
+        &-error {
+            background: rgba($error-color, 0.8);
+        }
+
+        &-success {
+            background: rgba($success-color, 0.8);
+        }
     }
 
-    &--success {
-        background: rgba($success-color, 0.8);
+    // todo: generate the below via a mixin
+    &--position {
+        &-bottom {
+            &-right {
+                right: 3%;
+                bottom: 3%;
+            }
+            &-left {
+                left: 3%;
+                bottom: 3%;
+            }
+            &-center {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 3%;
+            }
+        }        
+        &-top {
+            &-right {
+                right: 3%;
+                top: 3%;
+            }
+            &-left {
+                left: 3%;
+                top: 3%;
+            }
+            &-center {
+                left: 50%;
+                transform: translateX(-50%);
+                top: 3%;
+            }
+        }
     }
 
     &__close {
@@ -25,6 +63,7 @@
         padding: 10px;
         top: 0;
         right: 0;
+        color: $app-toast-close-color;
     }
 
     &__container {

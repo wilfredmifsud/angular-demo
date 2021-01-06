@@ -1,0 +1,11 @@
+.app {
+    &-toolbar {
+        display: flex;
+        justify-content: space-between;
+
+        &--left,
+        &--right {
+            max-width: 50%;
+        }
+    }
+}

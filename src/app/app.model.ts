@@ -5,3 +5,8 @@ export interface AppState {
     listing: ListingState;
     shared: SharedState
 }
+
+export interface AppMenuLinks {
+    title: string;
+    url: string;
+  }

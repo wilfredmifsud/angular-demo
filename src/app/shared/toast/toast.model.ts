@@ -7,12 +7,19 @@ export enum ToastType {
 export enum ToastPosition {
     bottomRight = "bottom-right",
     bottomleft = "bottom-left",
+    bottomCenter = "bottom-center",
     topLeft = "top-left",
-    topRight = "top-right"
+    topRight = "top-right",
+    topCenter = "top-center"
 } 
 
 export interface ToastNotification {
     message: string;
     type?: ToastType;
     position?: ToastPosition
+}
+
+export interface AppToastConfig {
+    position?: ToastPosition;
+    type?: ToastType
 }

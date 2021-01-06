@@ -1,0 +1,24 @@
+@import "./vars";
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+tr:nth-of-type(odd) {
+    background: rgba($primary-color, 0.05);
+}
+
+th {
+    background: rgba($primary-color, 0.8);
+    color: $white;
+    font-weight: bold;
+}
+
+td,
+th {
+    padding: 5px 10px;  
+    border: 1px solid rgba($primary-color, 0.2);
+    text-align: left;
+    vertical-align: middle;
+}

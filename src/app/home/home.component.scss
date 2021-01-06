@@ -1,0 +1,32 @@
+@import "./../../style/vars";
+
+$app-home-gutter-space: 10px;
+
+@mixin home-container {
+    padding: 25px;
+    border: 1px solid rgba($primary-color, 0.2);
+    box-shadow: 2px 2px 5px rgba($primary-color, 0.5);
+    margin: $app-home-gutter-space;
+}
+
+.app-home {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    height: 100%;
+
+    &__top,
+    &__left,
+    &__right {
+        @include home-container();
+    }
+
+    &__top {
+        flex-basis: 100%;
+    }
+
+    &__left,
+    &__right {
+        flex-basis: calc(50% - #{$app-home-gutter-space*2});
+    }
+}

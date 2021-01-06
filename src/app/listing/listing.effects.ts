@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, filter, map, mergeMap, pairwise, tap } from 'rxjs/operators';
-import { ListingAction, listingActions, listingRefetchSuccess } from './listing.actions';
+import { listingActions, listingRefetchSuccess } from './listing.actions';
 import { ListingService } from './listing.service';
 import { Coin, CoinUpdate } from "./listing.model";
 import { ToastService } from "../shared/toast/toast.service";
+import { ToastPosition, ToastType } from "../shared/toast/toast.model";
 
 @Injectable({
   providedIn: 'root',
@@ -30,10 +31,9 @@ export class ListingEffects {
         ofType<ReturnType<typeof listingRefetchSuccess>>(listingActions.refetchSuccess),
         pairwise(),
         map(x => {
-          const prev = x[0];
-          const next = x[1];
-          const changes: CoinUpdate[] = [];
-          prev.payload.map(prevCoin => {
+          const prev = x[0]; // previous data 
+          const next = x[1]; // new data that was freshly fetched
+          return prev.payload.reduce((changes, prevCoin) => {
             const updatedCoinData = next.payload.find(i => i.id===prevCoin.id);
 
             if(updatedCoinData && prevCoin.current_price !== updatedCoinData.current_price) {
@@ -43,15 +43,15 @@ export class ListingEffects {
                 coin: updatedCoinData,
                 differencePercent: percentDiff,
                 differenceAmount: amountDiff                 
-              })            
+              });
             }
-          });
-          return changes;
+            return changes;
+          }, [] as CoinUpdate[]);
         }),
         filter(x => !_.isEmpty(x)),
         tap(() => this.toastService.reset()),
         map(x => x.map(item => `${item.coin.name} (${item.coin.symbol.toUpperCase()}) has changed by ${item.differencePercent.toFixed(2)}%`)),
-        tap(x => this.toastService.setMessage(x.join('<br/> ')))
+        tap(x => this.toastService.setMessage(x.join('<br/> '), ToastType.success, ToastPosition.bottomCenter))
       ),
     { dispatch: false }
   );
