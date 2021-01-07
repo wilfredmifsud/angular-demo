@@ -3,7 +3,7 @@ export interface ListingState {
 }
 
 export interface Coin {
-  id: number;
+  id: string;
   name: string;
   image: string;
   symbol: string;
@@ -21,7 +21,6 @@ export interface Coin {
   ath_change_percentage: number;
   ath_date: string;
 }
-
 
 export interface CoinUpdate {
   coin: Coin,

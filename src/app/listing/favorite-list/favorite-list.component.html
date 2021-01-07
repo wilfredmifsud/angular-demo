@@ -1,0 +1,7 @@
+<ng-container *loggedIn="true">
+  <ng-container *ngIf="list$ | async as itemCollection">
+    <span *ngIf="itemCollection?.length">Favorite Coins:</span>
+  <mat-chip-list aria-label="Fish selection">
+    <mat-chip *ngFor="let coin of itemCollection">{{coin.name}}&nbsp;<span [coinIndicator]="coin.price_change_percentage_24h">{{coin.price_change_24h | currency}} ({{coin.price_change_percentage_24h | number}}%)</span></mat-chip>
+  </mat-chip-list>
+</ng-container>

@@ -3,14 +3,16 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatTabsModule } from '@angular/material/tabs';
+import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
 
 const MAT_MODULE_LIST = [
   MatToolbarModule,
   MatSidenavModule,
   MatButtonModule,
   MatIconModule,
-  MatTabsModule
+  MatInputModule,
+  MatChipsModule
 ]
 @NgModule({
   imports: [

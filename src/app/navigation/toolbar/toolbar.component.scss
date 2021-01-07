@@ -1,0 +1,36 @@
+@import "./../../../style/vars";
+
+.app-navigation-toolbar {
+  .mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+  }
+
+  &__left,
+  &__right {
+    width: 40%;
+  }
+
+  &__nav {
+    display: flex;
+
+    &-link {
+      margin: 0 20px 0px;
+      opacity: 0.9;
+      cursor: pointer;
+      display:block;
+      height: 100%;
+      color: $white;
+      padding: 0 20px;
+
+      &--active {
+        border-bottom: 5px solid $accent-color;
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

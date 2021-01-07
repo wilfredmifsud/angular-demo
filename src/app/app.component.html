@@ -1,14 +1,5 @@
-<mat-toolbar color="primary" class="app-toolbar">
-  <div class="app-toolbar--left">
-    <nav mat-tab-nav-bar>
-      <a mat-tab-link *ngFor="let link of links" (click)="onRouteChange(link.url)">
-        {{link.title}}
-      </a>
-    </nav>
-  </div>
-  <div class="app-toolbar--right">
-    <h1>Cryptography Dashboard</h1>
-  </div>
-</mat-toolbar>
+<app-navigation-toolbar></app-navigation-toolbar>
 <app-toast></app-toast>
-<router-outlet></router-outlet>
+<div class="app-content">
+  <router-outlet></router-outlet>
+</div>

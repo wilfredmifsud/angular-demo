@@ -1,3 +1,4 @@
+<h1>Top Crypo Listing</h1>
 <table class="app-listing__data">
   <tr>
     <th></th>
@@ -11,7 +12,7 @@
   <ng-container *ngIf="items$ | async as itemCollection">
     <tr *ngFor="let coin of itemCollection">
       <td><img style="max-width: 40px" src="{{coin.image}}"></td>
-      <td>{{coin.name}} ({{coin.symbol}})</td>
+      <td><app-favorite [coin]="coin"></app-favorite> {{coin.name}} ({{coin.symbol}})</td>
       <td>{{coin.current_price | currency}}</td>
       <td>{{coin.high_24h | currency}}</td>
       <td>{{coin.low_24h | currency}}</td>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { tap } from 'rxjs/operators';
 import { News } from './news.model';
 import { NewsService } from './news.service';
@@ -7,6 +7,7 @@ import { NewsService } from './news.service';
   selector: 'app-news',
   templateUrl: './news.component.html',
   styleUrls: ['./news.component.scss'],
+  encapsulation: ViewEncapsulation.None,
   host: {
     class: 'app-news',
   },

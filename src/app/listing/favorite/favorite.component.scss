@@ -1,0 +1,12 @@
+@import "./../../../style/vars";
+
+.app-favorite {
+  i {
+    cursor: pointer;
+    opacity: 0.4;
+  }
+  .active {
+    color: $accent-color;
+    opacity: 1;
+  }
+}

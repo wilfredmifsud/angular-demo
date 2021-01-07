@@ -1,13 +1,18 @@
-import * as _ from "lodash";
 import { Injectable } from '@angular/core';
+
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+
+import * as _ from "lodash";
+
 import { of } from 'rxjs';
 import { catchError, filter, map, mergeMap, pairwise, tap } from 'rxjs/operators';
-import { listingActions, listingRefetchSuccess } from './listing.actions';
-import { ListingService } from './listing.service';
-import { Coin, CoinUpdate } from "./listing.model";
-import { ToastService } from "../shared/toast/toast.service";
+
 import { ToastPosition, ToastType } from "../shared/toast/toast.model";
+import { ToastService } from "../shared/toast/toast.service";
+
+import { listingActions, listingRefetchSuccess } from './listing.actions';
+import { Coin, CoinUpdate } from "./listing.model";
+import { ListingService } from './listing.service';
 
 @Injectable({
   providedIn: 'root',
@@ -31,7 +36,7 @@ export class ListingEffects {
         ofType<ReturnType<typeof listingRefetchSuccess>>(listingActions.refetchSuccess),
         pairwise(),
         map(x => {
-          const prev = x[0]; // previous data 
+          const prev = x[0]; // previous data
           const next = x[1]; // new data that was freshly fetched
           return prev.payload.reduce((changes, prevCoin) => {
             const updatedCoinData = next.payload.find(i => i.id===prevCoin.id);
@@ -51,7 +56,7 @@ export class ListingEffects {
         filter(x => !_.isEmpty(x)),
         tap(() => this.toastService.reset()),
         map(x => x.map(item => `${item.coin.name} (${item.coin.symbol.toUpperCase()}) has changed by ${item.differencePercent.toFixed(2)}%`)),
-        tap(x => this.toastService.setMessage(x.join('<br/> '), ToastType.success, ToastPosition.bottomCenter))
+        tap(x => this.toastService.setMessage(x.join('<br/> '), ToastType.info))
       ),
     { dispatch: false }
   );
