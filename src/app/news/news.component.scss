@@ -1,4 +1,9 @@
+@import "../../style/vars";
+
 .app-news {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
     &__no-data {
         width: 100%;
         height: 100%;
@@ -10,6 +15,25 @@
 
         &-icon {
             font-size: 150px;
+        }
+    }
+
+    &__item {
+        background: #ececec;
+        border: 1px solid #eee;
+        padding: 25px;
+        box-shadow: 2px 2px 5px #ccc;
+        margin: 10px;
+
+        &-image {
+            max-width: 100%;
+            height: 180px;
+            width: 100%;
+        }
+
+        &-title {
+            color: $primary-color;
+            font-size: 18px;
         }
     }
 }

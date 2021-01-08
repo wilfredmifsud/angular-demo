@@ -1,5 +1,5 @@
 import * as _ from "lodash";
-import { distinctUntilChanged, map, withLatestFrom } from 'rxjs/operators';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 import { Component, ViewEncapsulation } from '@angular/core';
 
 import { Store } from '@ngrx/store';
@@ -8,8 +8,6 @@ import { coinFavorites } from 'src/app/auth/auth.selector';
 import { Coin } from '../listing.model';
 import { combineLatest } from 'rxjs';
 import { getAllListing } from '../listing.selector';
-
-
 
 @Component({
   selector: 'app-favorite-list',
@@ -22,10 +20,9 @@ import { getAllListing } from '../listing.selector';
 })
 export class FavoriteListComponent {
 
-  list$ =
-  combineLatest([
+  list$ = combineLatest([
     this.store.select(getAllListing),
-        this.store.select(coinFavorites)
+    this.store.select(coinFavorites)
   ]).pipe(
     distinctUntilChanged(),
     map(x => x[1].reduce((coins, coin) => {

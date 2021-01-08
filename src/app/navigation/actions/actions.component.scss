@@ -4,7 +4,7 @@
   justify-content: flex-end;
   font-size: 13px;
 
-  &--links {
+  &__links {
     margin-left: 20px;
 
     &-button.mat-raised-button {
@@ -12,7 +12,7 @@
     }
   }
 
-  &--form {
+  &__form {
     &-field {
       margin-left: 10px;
     }

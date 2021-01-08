@@ -3,18 +3,16 @@ import { filter, map } from 'rxjs/operators';
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.model';
-import { authActions } from 'src/app/auth/auth.actions';
-import { coinFavorites } from 'src/app/auth/auth.selector';
-
+import { AppState } from '../../../app/app.model';
+import { authActions } from '../../../app/auth/auth.actions';
+import { coinFavorites } from '../../../app/auth/auth.selector';
 import { Coin } from '../listing.model';
-
 
 @Component({
   selector: 'app-favorite',
   templateUrl: './favorite.component.html',
   styleUrls: ['./favorite.component.scss'],
-  encapsulation: ViewEncapsulation.None, // todo all components liike this
+  encapsulation: ViewEncapsulation.None,
   host: {
     class: 'app-favorite',
   },
@@ -24,7 +22,6 @@ export class FavoriteComponent {
   @Input() coin!: Coin;
 
   isToggledOn = false;
-
   toggled$ = this.store.select(coinFavorites).pipe(
     distinctUntilChanged(),
     filter(() => !!this.coin),

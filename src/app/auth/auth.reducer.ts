@@ -1,7 +1,6 @@
 import * as _ from "lodash";
 import { createReducer, on } from "@ngrx/store";
 import { Coin } from "../listing/listing.model";
-
 import { loginSuccess, logout, toggleFavoriteCoin } from "./auth.actions";
 import { AuthState, AuthUserProfile } from "./auth.model";
 
@@ -25,6 +24,7 @@ export const authReducer = createReducer(
     const index = state.favorite.findIndex((x) => x === data.payload.id);
     let updatedState: AuthState;
     if (index > -1) {
+      // remove from favorites
       let updatedCoins = [...state.favorite];
       updatedCoins.splice(index, 1);
       updatedState = {
@@ -32,6 +32,7 @@ export const authReducer = createReducer(
         favorite: updatedCoins,
       };
     } else {
+      // add to favorites
       updatedState = {
         ...state,
         favorite: [...state.favorite, data.payload.id],

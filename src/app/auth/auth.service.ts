@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
-
-import { EMPTY, Observable, of, throwError } from "rxjs";
-
+import { Observable, of, throwError } from "rxjs";
 import { AuthLoginRequest, AuthUserProfile } from "./auth.model";
 
 @Injectable({
   providedIn: "root",
 })
 export class AuthService {
+
+  // dummy authentication method
   login$(data: AuthLoginRequest): Observable<AuthUserProfile | null> {
     if(data.password === "letmein") {
       return of({

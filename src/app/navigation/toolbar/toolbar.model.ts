@@ -1,6 +1,5 @@
 
-
-export interface NavigationToolbarMenuLinks {
+ export interface NavigationToolbarMenuLinks {
   title: string;
   url: string;
 }

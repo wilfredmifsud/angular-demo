@@ -1,23 +1,56 @@
-<h1>Top Crypo Listing</h1>
-<table class="app-listing__data">
-  <tr>
-    <th></th>
-    <th>Coin</th>
-    <th>Price</th>
-    <th>24H High</th>
-    <th>24H Low</th>
-    <th>24H Change</th>
-    <th>ATH</th>
-  </tr>
-  <ng-container *ngIf="items$ | async as itemCollection">
-    <tr *ngFor="let coin of itemCollection">
-      <td><img style="max-width: 40px" src="{{coin.image}}"></td>
-      <td><app-favorite [coin]="coin"></app-favorite> {{coin.name}} ({{coin.symbol}})</td>
-      <td>{{coin.current_price | currency}}</td>
-      <td>{{coin.high_24h | currency}}</td>
-      <td>{{coin.low_24h | currency}}</td>
-      <td [coinIndicator]="coin.price_change_percentage_24h">{{coin.price_change_24h | currency}} ({{coin.price_change_percentage_24h | number}}%)</td>
-      <td>{{coin.ath | currency}}</td>
-    </tr>
+<ng-container *ngIf="items$ | async as itemCollection;">
+  <ng-container *ngIf="itemCollection?.length else noData">
+    <h1>Top Crypo Listing</h1>
+    <form [formGroup]="filterForm" (ngSubmit)="doFilter()">
+      TODO FILTERS
+      <mat-form-field appearance="fill">
+        <mat-label>Base Currency</mat-label>
+        <mat-select [formControl]="baseCurrency">
+          <mat-option *ngFor="let baseCurrency of baseCurrencyList" [value]="baseCurrency">{{baseCurrency}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Order</mat-label>
+        <mat-select [formControl]="order">
+          <mat-option *ngFor="let order of orderList" [value]="order">{{order}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Page Size</mat-label>
+        <mat-select [formControl]="pageSize">
+          <mat-option *ngFor="let size of pageSize" [value]="size">{{size}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+    <table class="app-listing__data">
+      <tr>
+        <th></th>
+        <th>Coin</th>
+        <th>Price</th>
+        <th>24H High</th>
+        <th>24H Low</th>
+        <th>24H Change</th>
+        <th>ATH</th>
+      </tr>
+      <tr *ngFor="let coin of itemCollection">
+        <td><img style="max-width: 40px" src="{{coin.image}}"></td>
+        <td>
+          <app-favorite [coin]="coin"></app-favorite> {{coin.name}} ({{coin.symbol}})
+        </td>
+        <td>{{coin.current_price | currency}}</td>
+        <td>{{coin.high_24h | currency}}</td>
+        <td>{{coin.low_24h | currency}}</td>
+        <td [coinIndicator]="coin.price_change_percentage_24h">{{coin.price_change_24h | currency}}
+          ({{coin.price_change_percentage_24h | number}}%)</td>
+        <td>{{coin.ath | currency}}</td>
+      </tr>
+    </table>
   </ng-container>
-</table>
+</ng-container>
+
+<ng-template #noData>
+  <div class="app-listing__no-data">
+    <span class="material-icons app-listing__no-data-icon"> highlight_off </span>
+    <h1>Cannot load Crypto Data!</h1>
+  </div>
+</ng-template>

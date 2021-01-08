@@ -1,8 +1,16 @@
 <ng-container *ngIf="items?.length; else noData">
   <div class="app-news__item" *ngFor="let item of items">
-    <img src="{{item.urlToImage}}" style="width: 200px">
-    <h1>{{item.title}}</h1>
-    <p>{{item.description}}</p>
+    <a [attr.href]="item.url" target="_blank">
+      <img class="app-news__item-image" src="{{item.urlToImage}}">
+      <h3 class="app-news__item-title">{{item.title}}</h3>
+    </a>
+    <p class="app-news__item-description">{{item.description}}</p>
+    <div class=
+    <span class="app-news__item-date">{{item.publishedAt}}</span>
+    <span class="app-news__item-author">{{item.author}}</span>
+    <a [attr.href]="item.url" target="_blank">
+      Read More
+    </a>
   </div>
 </ng-container>
 

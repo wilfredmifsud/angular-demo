@@ -49,7 +49,6 @@ export class ActionsComponent implements OnInit{
           return;
         }
         this.profile = null;
-
       })
     ).subscribe();
   }

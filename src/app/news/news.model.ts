@@ -5,10 +5,4 @@ export interface News {
   url: string;
   urlToImage: string;
   publishedAt: string;
-  content: string;
-}
-
-export interface NewsRequest {
-  totalResults: number;
-  articles: News[]
 }
