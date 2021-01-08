@@ -34,4 +34,8 @@ export class ListingComponent {
       pageSize: [this.pageSize],
     });
   }
+
+  doFilter() {
+    // todo
+  }
 }
