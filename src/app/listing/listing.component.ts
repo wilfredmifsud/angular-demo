@@ -17,9 +17,6 @@ import { getAllListing } from './listing.selector';
 export class ListingComponent {
   items: Coin[] = [];
   items$ = this.store.select(getAllListing);
-  baseCurrencyList = ["usd", "eur"];
-  orderList = ["market_cap_desc", "market_cap_asc"];
-  pageSize = ["20", "50", "100", "150"];
   filterForm!: FormGroup;
 
   constructor(
@@ -27,15 +24,4 @@ export class ListingComponent {
     private store: Store<AppState>
   ) { }
 
-  ngOnInit() {
-    this.filterForm = this.fb.group({
-      baseCurrency: [this.baseCurrencyList],
-      order: [this.orderList],
-      pageSize: [this.pageSize],
-    });
-  }
-
-  doFilter() {
-    // todo
-  }
 }

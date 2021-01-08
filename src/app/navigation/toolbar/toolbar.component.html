@@ -1,8 +1,10 @@
 <mat-toolbar color="primary" class="app-toolbar">
   <div class="app-navigation-toolbar__left">
     <nav class="app-navigation-toolbar__nav">
+      <button class="app-navigation-toolbar__nav-link app-navigation-toolbar__nav-link-burger" mat-icon-button (click)="triggerToggleSidenav()"><mat-icon>menu</mat-icon></button>
+
       <ng-container *ngFor="let link of links">
-        <a class="app-navigation-toolbar__nav-link" [routerLink]="link.url"
+        <a class="app-navigation-toolbar__nav-link app-navigation-toolbar__nav-link " [routerLink]="link.url"
           routerLinkActive="app-navigation-toolbar__nav-link--active">
           {{link.title}}
         </a>

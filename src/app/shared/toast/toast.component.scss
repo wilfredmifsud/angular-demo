@@ -6,12 +6,12 @@ $app-toast-close-color: $white !default;
 
 .app-toast {
     position: fixed;
-    width: 20%;
-    min-width: 400px;
-    max-width: 90%;
+    width: 300px;
+    max-width: 90vw;
     color: $app-toast-color;
     border-radius: $app-toast-border-radius;
     background: rgba($primary-color, 0.8);
+    z-index: 99999;
 
     &--type {
         &-error {
@@ -39,7 +39,7 @@ $app-toast-close-color: $white !default;
                 transform: translateX(-50%);
                 bottom: 3%;
             }
-        }        
+        }
         &-top {
             &-right {
                 right: 3%;

@@ -21,6 +21,7 @@ $app-home-gutter-space: 10px;
         @include home-container();
     }
 
+    &__info,
     &__top {
         flex-basis: 100%;
     }

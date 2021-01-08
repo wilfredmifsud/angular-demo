@@ -19,7 +19,7 @@
       margin: 0 20px 0px;
       opacity: 0.9;
       cursor: pointer;
-      display:block;
+      display: block;
       height: 100%;
       color: $white;
       padding: 0 20px;
@@ -30,6 +30,19 @@
 
       &:hover {
         opacity: 1;
+      }
+
+      // todo: these can be optimised into mixins for re-usablity
+      @media only screen and (max-width: 768px) {
+        &:not(.app-navigation-toolbar__nav-link-burger) {
+          display: none;
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+       &-burger.mat-icon-button {
+          display: none;
+        }
       }
     }
   }

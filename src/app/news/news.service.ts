@@ -24,7 +24,7 @@ export class NewsService {
       author: "John Know",
       description: "Sample subtitle for news article",
       publishedAt: "2020-01-01 19:00:00",
-      title: "Bitcoin breaks 40K USD, Where is it heading?",
+      title: "Bitcoin breaks 40K USD!",
       url: "http://marketwatch.com",
       urlToImage: "https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5jb2ludGVsZWdyYXBoLmNvbS9zdG9yYWdlL3VwbG9hZHMvdmlldy8zODI1MDU0NjJmMGUwMjcwM2NiMmJkNzJhNmM5YmI4Ny5qcGc=.jpg"
     }, {
@@ -36,6 +36,6 @@ export class NewsService {
       urlToImage: "https://images.cointelegraph.com/images/1434_aHR0cHM6Ly9zMy5ldS1jZW50cmFsLTEuYW1hem9uYXdzLmNvbS9zMy5jb2ludGVsZWdyYXBoLmNvbS91cGxvYWRzLzIwMjAtMTAvNTk0MDYwMzEtNjI1NC00NzNiLWJmMmUtY2MwOTliNjQxM2ZmLmpwZw==.jpg"
     }];
 
-    return of(articles);
+    return of([...articles, ...articles, ...articles, ...articles]);
   }
 }

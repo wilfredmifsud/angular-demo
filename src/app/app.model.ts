@@ -11,5 +11,4 @@ export interface AppState {
 
 export interface PayloadAction<T> extends Partial<Action> {
     payload?: T;
-  }
-  
+}

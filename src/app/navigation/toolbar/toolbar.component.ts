@@ -1,6 +1,6 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
+import { NAVIGATION_LINKS } from '../navigation.const';
 
-import { NavigationToolbarMenuLinks } from './toolbar.model';
 
 @Component({
   selector: 'app-navigation-toolbar',
@@ -13,19 +13,11 @@ import { NavigationToolbarMenuLinks } from './toolbar.model';
 })
 export class ToolbarComponent {
 
-  links: NavigationToolbarMenuLinks[] = [
-    {
-      title: 'Home',
-      url: 'home',
-    },
-    {
-      title: 'News',
-      url: 'news',
-    },
-    {
-      title: 'Coins',
-      url: 'coins',
-    },
-  ];
+  links = NAVIGATION_LINKS;
 
+  @Output() toggleSidenav = new EventEmitter<void>();
+
+  triggerToggleSidenav() {
+    this.toggleSidenav.emit();
+  }
 }

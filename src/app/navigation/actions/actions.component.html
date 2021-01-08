@@ -1,8 +1,5 @@
 <div class="app-navigation-actions__links" *ngIf="!profile">
   <ng-container *ngIf="!showLogin else loginFormContainer">
-    <button mat-raised-button class="app-navigation-actions__links-button">
-      Sign Up
-    </button>
     <button mat-raised-button class="app-navigation-actions__links-button" color="accent" (click)="toggleLogin()">
       Login Now
     </button>
@@ -13,7 +10,7 @@
         <input type="text" matInput formControlName="username" placeholder="Username">
       </mat-form-field>
       <mat-form-field class="app-navigation-actions__form-field">
-        <input type="password" matInput formControlName="password" placeholder="Password">
+        <input type="password" matInput formControlName="password" placeholder="Password (use letmein)">
       </mat-form-field>
       <button mat-raised-button type="submit" color="accent" class="app-navigation-actions__links-button">Login</button>
       <button mat-button class="app-navigation-actions__links-button" (click)="toggleLogin()">&laquo; back</button>

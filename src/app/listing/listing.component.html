@@ -1,27 +1,6 @@
 <ng-container *ngIf="items$ | async as itemCollection;">
   <ng-container *ngIf="itemCollection?.length else noData">
-    <h1>Top Crypo Listing</h1>
-    <form [formGroup]="filterForm" (ngSubmit)="doFilter()">
-      TODO FILTERS
-      <mat-form-field appearance="fill">
-        <mat-label>Base Currency</mat-label>
-        <mat-select formControlName="baseCurrency">
-          <mat-option *ngFor="let baseCurrency of baseCurrencyList" [value]="baseCurrency">{{baseCurrency}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Order</mat-label>
-        <mat-select formControlName="order">
-          <mat-option *ngFor="let order of orderList" [value]="order">{{order}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-label>Page Size</mat-label>
-        <mat-select formControlName="pageSize">
-          <mat-option *ngFor="let size of pageSize" [value]="size">{{size}}</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </form>
+    <h1>Top Crypto Listing</h1>
     <table class="app-listing__data">
       <tr>
         <th></th>

@@ -1,13 +1,16 @@
 <ng-container *ngIf="items?.length; else noData">
-  <div class="app-news__item" *ngFor="let item of items">
-    <a [attr.href]="item.url" target="_blank">
-      <img class="app-news__item-image" src="{{item.urlToImage}}">
-      <span class="app-news__item-date">{{item.publishedAt}}</span>
-      <h3 class="app-news__item-title">{{item.title}}</h3>
-    </a>
-    <p class="app-news__item-description">{{item.description}}</p>
-    <div class="app-news__item-actions">
-      <a mat-flat-button color="primary" [attr.href]="item.url" target="_blank">Read More</a>
+  <h1  class="app-news__heading">Latest News</h1>
+  <div class="app-news__collection">
+    <div class="app-news__item" *ngFor="let item of items">
+      <a [attr.href]="item.url" target="_blank">
+        <img class="app-news__item-image" src="{{item.urlToImage}}">
+        <h3 class="app-news__item-title">{{item.title}}</h3>
+      </a>
+      <p class="app-news__item-description">{{item.description}}</p>
+      <span class="app-news__item-date">published on {{item.publishedAt | date}}</span>
+      <div class="app-news__item-actions">
+        <a mat-flat-button color="primary" [attr.href]="item.url" target="_blank">Read More</a>
+      </div>
     </div>
   </div>
 </ng-container>

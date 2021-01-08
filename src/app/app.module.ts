@@ -29,6 +29,7 @@ import { SharedModule } from "./shared/shared.module";
 import { sharedReducer } from "./shared/shared.reducer";
 import { FavoriteComponent } from "./listing/favorite/favorite.component";
 import { FavoriteListComponent } from "./listing/favorite-list/favorite-list.component";
+import { SidenavComponent } from "./navigation/sidenav/sidenav.component";
 
 // todo move directives into shared, and import shared in all all mods
 @NgModule({
@@ -41,6 +42,7 @@ import { FavoriteListComponent } from "./listing/favorite-list/favorite-list.com
     AuthenticatedDirective,
     NewsComponent,
     HomeComponent,
+    SidenavComponent,
   ],
   imports: [
     CommonModule,
