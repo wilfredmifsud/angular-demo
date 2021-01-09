@@ -1,8 +1,7 @@
-# Expenses
+# Angular Demo Project
 
 A demo project to showcase Angular functionality.
 The code / techniques used in this demo are not production grade. It's sole purpose is to showcase Angular usage, in fact it no extra effort was put in to make the app look pixel perfect and with best UX / UI practises.
-
 
 ### Basic Features
 - Login (mock),
