@@ -1,8 +1,3 @@
 <ng-container *loggedIn="true">
-	<i
-		[ngClass]="{ active: (toggled$ | async) }"
-		class="material-icons"
-		(click)="toggle()"
-		>star_rate</i
-	>
+    <i [ngClass]="{ active: (toggled$ | async) }" class="material-icons" (click)="toggle()">star_rate</i>
 </ng-container>

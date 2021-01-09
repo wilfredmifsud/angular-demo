@@ -1,16 +1,15 @@
 <ng-container *loggedIn="true">
-	<ng-container *ngIf="list$ | async as itemCollection">
-		<mat-chip-list *ngIf="itemCollection?.length; else noData">
-			<mat-chip *ngFor="let coin of itemCollection">
-				{{ coin.name }}&nbsp;<span
-					[coinIndicator]="coin.price_change_percentage_24h"
-					>{{ coin.price_change_24h | currency }} ({{
-						coin.price_change_percentage_24h | number
-					}}%)</span
-				>
-			</mat-chip>
-		</mat-chip-list>
-	</ng-container>
+    <ng-container *ngIf="list$ | async as itemCollection">
+        <ng-container *ngIf="itemCollection?.length; else noData">
+            <ng-container *ngFor="let coin of itemCollection">
+                <coingecko-coin-ticker-widget class="app-favorite-list__item" [attr.coin-id]="coin" currency="usd" locale="en"></coingecko-coin-ticker-widget>
+            </ng-container>
+        </ng-container>
+    </ng-container>
 </ng-container>
-
-<ng-template #noData> There are no favorites yet. </ng-template>
+<ng-container *loggedIn="false">
+    You must be logged in for favorites
+</ng-container>
+<ng-template #noData>
+    There are no favorites yet.
+</ng-template>

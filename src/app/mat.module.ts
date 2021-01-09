@@ -4,7 +4,6 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { MatButtonModule } from "@angular/material/button";
 import { MatIconModule } from "@angular/material/icon";
 import { MatInputModule } from "@angular/material/input";
-import { MatChipsModule } from "@angular/material/chips";
 import { MatSelectModule } from "@angular/material/select";
 
 const MAT_MODULE_LIST = [
@@ -13,7 +12,6 @@ const MAT_MODULE_LIST = [
 	MatButtonModule,
 	MatIconModule,
 	MatInputModule,
-	MatChipsModule,
 	MatSelectModule
 ];
 @NgModule({

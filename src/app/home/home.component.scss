@@ -2,8 +2,6 @@
 $app-home-gutter-space: 10px;
 @mixin home-container {
     padding: 25px;
-    border: 1px solid rgba($primary-color, 0.2);
-    box-shadow: 2px 2px 5px rgba($primary-color, 0.5);
     margin: $app-home-gutter-space;
 }
 
@@ -18,11 +16,17 @@ $app-home-gutter-space: 10px;
         @include home-container();
     }
     &__info,
+    &__bottom,
     &__top {
         flex-basis: 100%;
     }
     &__left,
     &__right {
         flex-basis: calc(50% - #{$app-home-gutter-space * 2});
+    }
+    &__bottom {
+        text-align: center;
+        font-style: italic;
+        font-size: 11px;
     }
 }

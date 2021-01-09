@@ -1,14 +1,15 @@
 <div class="app-home__top">
-	<h1>Disclaimer</h1>
-	The code / techniques used in this demo are not production grade. It's sole
-	purpose is to showcase Angular usage, in fact it no extra effort was put in
-	to make the app look pixel perfect and with best UX / UI practises.
+    <h1>Top Coins</h1>
+    <coingecko-coin-price-static-headline-widget [attr.coin-id]="coin" currency="usd" locale="en"></coingecko-coin-price-static-headline-widget>
 </div>
 <div class="app-home__left">
-	<h1>Favorite Coins</h1>
-	<app-favorite-list></app-favorite-list>
+    <h1>Favorite Coins</h1>
+    <app-favorite-list></app-favorite-list>
 </div>
 <div class="app-home__right">
-	<h1>Latest News</h1>
-	Coming Soon
+    <h1>Announcments</h1>
+    <coingecko-beam-widget type="all" height="300" locale="en"></coingecko-beam-widget>
+</div>
+<div class="app-home__bottom">
+    The code / techniques used in this demo are not production grade. It's sole purpose is to showcase Angular usage, in fact it no extra effort was put in to make the app look pixel perfect and with best UX / UI practises.
 </div>

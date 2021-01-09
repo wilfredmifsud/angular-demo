@@ -5,7 +5,6 @@ import { Component, ViewEncapsulation } from "@angular/core";
 import { Store } from "@ngrx/store";
 import { AppState } from "src/app/app.model";
 import { coinFavorites } from "src/app/auth/auth.selector";
-import { Coin } from "../listing.model";
 import { combineLatest } from "rxjs";
 import { getAllListing } from "../listing.selector";
 
@@ -28,11 +27,11 @@ export class FavoriteListComponent {
 			x[1].reduce((coins, coin) => {
 				const matching = _.find(x[0], (c) => c.id === coin);
 				if (matching) {
-					coins.push(matching);
+					coins.push(matching.id);
 				}
 				return coins;
-			}, [] as Coin[])
-		)
+			}, [] as string[])
+		),
 	);
 
 	constructor(private store: Store<AppState>) {}

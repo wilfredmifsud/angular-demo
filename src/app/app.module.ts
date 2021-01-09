@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { CommonModule } from "@angular/common";
 import { NoopAnimationsModule } from "@angular/platform-browser/animations";
@@ -39,6 +39,7 @@ import { ConfirmComponent } from "./auth/login/login.component";
 		SidenavComponent,
 		ConfirmComponent
 	],
+	schemas: [CUSTOM_ELEMENTS_SCHEMA], // for coingecko widgets
 	entryComponents: [ConfirmComponent],
 	imports: [
 		CommonModule,
