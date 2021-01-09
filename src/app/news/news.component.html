@@ -1,23 +1,33 @@
 <ng-container *ngIf="items?.length; else noData">
-  <h1  class="app-news__heading">Latest News</h1>
-  <div class="app-news__collection">
-    <div class="app-news__item" *ngFor="let item of items">
-      <a [attr.href]="item.url" target="_blank">
-        <img class="app-news__item-image" src="{{item.urlToImage}}">
-        <h3 class="app-news__item-title">{{item.title}}</h3>
-      </a>
-      <p class="app-news__item-description">{{item.description}}</p>
-      <span class="app-news__item-date">published on {{item.publishedAt | date}}</span>
-      <div class="app-news__item-actions">
-        <a mat-flat-button color="primary" [attr.href]="item.url" target="_blank">Read More</a>
-      </div>
-    </div>
-  </div>
+	<h1 class="app-news__heading">Latest News</h1>
+	<div class="app-news__collection">
+		<div class="app-news__item" *ngFor="let item of items">
+			<a [attr.href]="item.url" target="_blank">
+				<img class="app-news__item-image" src="{{ item.urlToImage }}" />
+				<h3 class="app-news__item-title">{{ item.title }}</h3>
+			</a>
+			<p class="app-news__item-description">{{ item.description }}</p>
+			<span class="app-news__item-date"
+				>published on {{ item.publishedAt | date }}</span
+			>
+			<div class="app-news__item-actions">
+				<a
+					mat-flat-button
+					color="primary"
+					[attr.href]="item.url"
+					target="_blank"
+					>Read More</a
+				>
+			</div>
+		</div>
+	</div>
 </ng-container>
 
 <ng-template #noData>
-  <div class="app-news__no-data">
-    <span class="material-icons app-news__no-data-icon"> highlight_off </span>
-    <h1>There are no crypto news right now</h1>
-  </div>
+	<div class="app-news__no-data">
+		<span class="material-icons app-news__no-data-icon">
+			highlight_off
+		</span>
+		<h1>There are no crypto news right now</h1>
+	</div>
 </ng-template>

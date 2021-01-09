@@ -1,3 +1,4 @@
+@import "../../style/vars";
 .app-listing {
     &__no-data {
         width: 100%;
@@ -6,8 +7,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        color: #ccc;
-
+        color: rgba($primary-color, 0.1);
         &-icon {
             font-size: 150px;
         }

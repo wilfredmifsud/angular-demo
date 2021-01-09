@@ -1,5 +1,9 @@
 <ng-container *ngFor="let link of links">
-  <a class="app-sidenav__link" [routerLink]="link.url" routerLinkActive="app-sidenav__link--active">
-    {{link.title}}
-  </a>
+	<a
+		class="app-sidenav__link"
+		[routerLink]="link.url"
+		routerLinkActive="app-sidenav__link--active"
+	>
+		{{ link.title }}
+	</a>
 </ng-container>

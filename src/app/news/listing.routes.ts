@@ -1,16 +1,9 @@
 import { Routes } from "@angular/router";
-import { ListingComponent } from "./news.component";
+import { ListingComponent } from "../listing/listing.component";
 
 export const listingRoutes: Routes = [
-  {
-    path: "news",
-    component: ListingComponent
-  }
-  {
-    path: "first",
-    component: ListingComponent
-  },
-  {
-  path: "*",
-  component: ListingComponent
-}];
+	{
+		path: "news",
+		component: ListingComponent
+	}
+];

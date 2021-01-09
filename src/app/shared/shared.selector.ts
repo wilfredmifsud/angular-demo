@@ -1,9 +1,9 @@
-import { createSelector } from '@ngrx/store';
-import { AppState } from '../app.model';
+import { createSelector } from "@ngrx/store";
+import { AppState } from "../app.model";
 
 export const sharedState = (state: AppState) => state.shared;
 
 export const getNotification = createSelector(
-  sharedState,
-  (state) => state.notification
+	sharedState,
+	(state) => state.notification
 );

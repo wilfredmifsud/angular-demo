@@ -8,18 +8,17 @@ import { MatModule } from "../mat.module";
 import { ActionsComponent } from "./actions/actions.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
 
-export const NAVIGATION_LIST = [
-  ActionsComponent,
-   ToolbarComponent
-];
+export const NAVIGATION_LIST = [ActionsComponent, ToolbarComponent];
 
 @NgModule({
-  declarations: [
-    ...NAVIGATION_LIST
-  ],
-  imports: [RouterModule , FormsModule, ReactiveFormsModule, CommonModule, MatModule],
-  exports: [
-    ...NAVIGATION_LIST
-  ],
+	declarations: [...NAVIGATION_LIST],
+	imports: [
+		RouterModule,
+		FormsModule,
+		ReactiveFormsModule,
+		CommonModule,
+		MatModule
+	],
+	exports: [...NAVIGATION_LIST]
 })
 export class NavigationModule {}

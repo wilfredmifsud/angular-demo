@@ -1,24 +1,62 @@
 <div class="app-navigation-actions__links" *ngIf="!profile">
-  <ng-container *ngIf="!showLogin else loginFormContainer">
-    <button mat-raised-button class="app-navigation-actions__links-button" color="accent" (click)="toggleLogin()">
-      Login Now
-    </button>
-  </ng-container>
-  <ng-template #loginFormContainer>
-    <form [formGroup]="loginForm" (ngSubmit)="doLogin()" class="app-navigation-actions__form">
-      <mat-form-field class="app-navigation-actions__form-field">
-        <input type="text" matInput formControlName="username" placeholder="Username">
-      </mat-form-field>
-      <mat-form-field class="app-navigation-actions__form-field">
-        <input type="password" matInput formControlName="password" placeholder="Password (use letmein)">
-      </mat-form-field>
-      <button mat-raised-button type="submit" color="accent" class="app-navigation-actions__links-button">Login</button>
-      <button mat-button class="app-navigation-actions__links-button" (click)="toggleLogin()">&laquo; back</button>
-    </form>
-  </ng-template>
-
+	<ng-container *ngIf="!showLogin; else loginFormContainer">
+		<button
+			mat-raised-button
+			class="app-navigation-actions__links-button"
+			color="accent"
+			(click)="toggleLogin()"
+		>
+			Login Now
+		</button>
+	</ng-container>
+	<ng-template #loginFormContainer>
+		<form
+			[formGroup]="loginForm"
+			(ngSubmit)="doLogin()"
+			class="app-navigation-actions__form"
+		>
+			<mat-form-field class="app-navigation-actions__form-field">
+				<input
+					type="text"
+					matInput
+					formControlName="username"
+					placeholder="Username"
+				/>
+			</mat-form-field>
+			<mat-form-field class="app-navigation-actions__form-field">
+				<input
+					type="password"
+					matInput
+					formControlName="password"
+					placeholder="Password (use letmein)"
+				/>
+			</mat-form-field>
+			<button
+				mat-raised-button
+				type="submit"
+				color="accent"
+				class="app-navigation-actions__links-button"
+			>
+				Login
+			</button>
+			<button
+				mat-button
+				class="app-navigation-actions__links-button"
+				(click)="toggleLogin()"
+			>
+				&laquo; back
+			</button>
+		</form>
+	</ng-template>
 </div>
 
 <div class="app-navigation-actions__profile" *ngIf="profile">
-  Hello {{profile.username}}  <button mat-button class="app-navigation-actions__profile-button" (click)="doLogout()">(logout)</button>
+	Hello {{ profile.username }}
+	<button
+		mat-button
+		class="app-navigation-actions__profile-button"
+		(click)="doLogout()"
+	>
+		(logout)
+	</button>
 </div>

@@ -1,13 +1,8 @@
-import { NgModule } from '@angular/core';
-import { ToastModule } from './toast/toast.module';
+import { NgModule } from "@angular/core";
+import { ToastModule } from "./toast/toast.module";
 
 @NgModule({
-    imports: [
-        ToastModule
-    ],
-    exports: [
-        ToastModule
-    ]
+	imports: [ToastModule],
+	exports: [ToastModule]
 })
-export class SharedModule {
-}
+export class SharedModule {}

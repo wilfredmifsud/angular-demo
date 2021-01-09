@@ -1,4 +1,10 @@
 <div class="app-toast__container" *ngIf="notification$ | async as notification">
-    <div class="app-toast__close" (click)="close()"><span class="material-icons">clear</span></div>
-    <div class="app-toast__message" *ngIf="notification.message" [innerHTML]="notification.message"></div>
+	<div class="app-toast__close" (click)="close()">
+		<span class="material-icons">clear</span>
+	</div>
+	<div
+		class="app-toast__message"
+		*ngIf="notification.message"
+		[innerHTML]="notification.message"
+	></div>
 </div>

@@ -1,12 +1,11 @@
 @import "./../../../style/vars";
-
 .app-favorite {
-  .material-icons {
-    cursor: pointer;
-    opacity: 0.4;
-  }
-  .active {
-    color: $accent-color;
-    opacity: 1;
-  }
+    .material-icons {
+        cursor: pointer;
+        opacity: 0.4;
+    }
+    .active {
+        color: $accent-color;
+        opacity: 1;
+    }
 }

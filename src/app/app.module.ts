@@ -33,37 +33,37 @@ import { SidenavComponent } from "./navigation/sidenav/sidenav.component";
 
 // todo move directives into shared, and import shared in all all mods
 @NgModule({
-  declarations: [
-    AppComponent,
-    ListingComponent,
-    FavoriteListComponent,
-    FavoriteComponent,
-    CoinIndicatorDirective,
-    AuthenticatedDirective,
-    NewsComponent,
-    HomeComponent,
-    SidenavComponent,
-  ],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    ReactiveFormsModule,
-    FormsModule,
-    StoreModule.forRoot({
-      listing: listingReducer,
-      shared: sharedReducer,
-      auth: authReducer,
-    }),
-    StoreDevtoolsModule.instrument(),
-    EffectsModule.forRoot([ListingEffects, AuthEffects]),
-    NoopAnimationsModule,
-    MatModule,
-    SharedModule,
-    NavigationModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+	declarations: [
+		AppComponent,
+		ListingComponent,
+		FavoriteListComponent,
+		FavoriteComponent,
+		CoinIndicatorDirective,
+		AuthenticatedDirective,
+		NewsComponent,
+		HomeComponent,
+		SidenavComponent
+	],
+	imports: [
+		CommonModule,
+		BrowserModule,
+		AppRoutingModule,
+		HttpClientModule,
+		ReactiveFormsModule,
+		FormsModule,
+		StoreModule.forRoot({
+			listing: listingReducer,
+			shared: sharedReducer,
+			auth: authReducer
+		}),
+		StoreDevtoolsModule.instrument(),
+		EffectsModule.forRoot([ListingEffects, AuthEffects]),
+		NoopAnimationsModule,
+		MatModule,
+		SharedModule,
+		NavigationModule
+	],
+	providers: [],
+	bootstrap: [AppComponent]
 })
 export class AppModule {}

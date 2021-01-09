@@ -1,27 +1,26 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from "@angular/router";
 
-import { HomeComponent } from './home/home.component';
-import { listingRoutes } from './listing/listing.routes';
-import { newsRoutes } from './news/news.routes';
+import { HomeComponent } from "./home/home.component";
+import { listingRoutes } from "./listing/listing.routes";
+import { newsRoutes } from "./news/news.routes";
 
 const routes: Routes = [
-  ...newsRoutes,
-  ...listingRoutes,
-  {
-    "path": "home",
-    component: HomeComponent
-
-  },
-  {
-    "path": "",
-    pathMatch: 'full',
-    redirectTo: 'home'
-  }
+	...newsRoutes,
+	...listingRoutes,
+	{
+		path: "home",
+		component: HomeComponent
+	},
+	{
+		path: "",
+		pathMatch: "full",
+		redirectTo: "home"
+	}
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+	imports: [RouterModule.forRoot(routes)],
+	exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
