@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Store } from "@ngrx/store";
 import { SimpleModalComponent } from "ngx-simple-modal";
 import { Subscription } from "rxjs";
-import { tap } from "rxjs/operators";
+import { filter, tap } from "rxjs/operators";
 import { AppState } from "src/app/app.model";
 import { authActions } from "../auth.actions";
 import { isLoggedIn } from "../auth.selector";
@@ -38,13 +38,9 @@ export class ConfirmComponent extends SimpleModalComponent<any, any> {
 
 		this.isLogged$$ = this.isLogged$
 			.pipe(
-				tap((x) => {
-					if (x?.username) {
-						alert("OK");
-					}
-				})
-			)
-			.subscribe();
+                filter(x => !!x?.username),
+                tap(() => this.close())
+			).subscribe();
 	}
 
 	doLogin() {

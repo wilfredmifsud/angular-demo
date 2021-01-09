@@ -16,7 +16,7 @@ $app-home-gutter-space: 10px;
         @include home-container();
     }
     &__info,
-    &__bottom,
+    &__disclaimer,
     &__top {
         flex-basis: 100%;
     }
@@ -24,7 +24,7 @@ $app-home-gutter-space: 10px;
     &__right {
         flex-basis: calc(50% - #{$app-home-gutter-space * 2});
     }
-    &__bottom {
+    &__disclaimer {
         text-align: center;
         font-style: italic;
         font-size: 11px;
