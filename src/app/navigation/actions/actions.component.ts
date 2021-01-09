@@ -27,8 +27,13 @@ export class ActionsComponent implements OnInit, OnDestroy {
 
 	private isLogged$ = this.store.select(isLoggedIn);
 	private isLogged$$ = Subscription.EMPTY;
+	private openLogin$$ = Subscription.EMPTY;
 
-	constructor(private fb: FormBuilder, private store: Store<AppState>, private simpleModalService: SimpleModalService) {}
+	constructor(
+		private fb: FormBuilder,
+		private store: Store<AppState>,
+		private simpleModalService: SimpleModalService
+	) {}
 
 	ngOnInit() {
 		this.isLogged$$ = this.isLogged$
@@ -45,21 +50,9 @@ export class ActionsComponent implements OnInit, OnDestroy {
 	}
 
 	showLogin() {
-		let disposable = this.simpleModalService.addModal(ConfirmComponent)
-			.subscribe((isConfirmed)=>{
-				//We get modal result
-				if(isConfirmed) {
-					alert('accepted');
-				}
-				else {
-					alert('declined');
-				}
-			});
-		//We can close modal calling disposable.unsubscribe();
-		//If modal was not closed manually close it by timeout
-		setTimeout(()=>{
-			disposable.unsubscribe();
-		},10000);
+		this.openLogin$$ = this.simpleModalService
+			.addModal(ConfirmComponent)
+			.subscribe();
 	}
 
 	doLogout() {
@@ -68,5 +61,6 @@ export class ActionsComponent implements OnInit, OnDestroy {
 
 	ngOnDestroy() {
 		this.isLogged$$.unsubscribe();
+		this.openLogin$$.unsubscribe();
 	}
 }

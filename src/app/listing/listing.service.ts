@@ -10,9 +10,10 @@ import { Coin } from "./listing.model";
 export class ListingService {
 	constructor(private http: HttpClient) {}
 
+	// todo: the parameters are set as hardcoded, to update them dynamically with filters
 	getAll$(page = 1, limit = 200): Observable<Coin[]> {
 		const params = new HttpParams()
-			.set("vs_currency", "usd") // todo: change currency
+			.set("vs_currency", "usd")
 			.set("order", "market_cap_desc")
 			.set("page", `${page}`)
 			.set("cache_bust", `${Math.round(new Date().getTime() / 1000)}`)

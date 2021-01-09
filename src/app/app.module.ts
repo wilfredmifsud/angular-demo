@@ -8,15 +8,11 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
-
-import { AuthenticatedDirective } from "src/directives/authenticted.directive";
-
-import { CoinIndicatorDirective } from "../directives/coin-indicator.directive";
+import { defaultSimpleModalOptions, SimpleModalModule } from "ngx-simple-modal";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { MatModule } from "./mat.module";
-
 import { AuthEffects } from "./auth/auth.effects";
 import { authReducer } from "./auth/auth.reducer";
 import { HomeComponent } from "./home/home.component";
@@ -30,18 +26,14 @@ import { sharedReducer } from "./shared/shared.reducer";
 import { FavoriteComponent } from "./listing/favorite/favorite.component";
 import { FavoriteListComponent } from "./listing/favorite-list/favorite-list.component";
 import { SidenavComponent } from "./navigation/sidenav/sidenav.component";
-import { defaultSimpleModalOptions, SimpleModalModule } from "ngx-simple-modal";
 import { ConfirmComponent } from "./auth/login/login.component";
 
-// todo move directives into shared, and import shared in all all mods
 @NgModule({
 	declarations: [
 		AppComponent,
 		ListingComponent,
 		FavoriteListComponent,
 		FavoriteComponent,
-		CoinIndicatorDirective,
-		AuthenticatedDirective,
 		NewsComponent,
 		HomeComponent,
 		SidenavComponent,
