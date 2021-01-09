@@ -7,10 +7,10 @@ import { AuthState, AuthUserProfile } from "./auth.model";
 export const initialState: AuthState = {
 	user:
 		(JSON.parse(
-			`${localStorage.getItem("profile") || ""}`
+			`${localStorage.getItem("profile") || "{}"}`
 		) as AuthUserProfile) || null,
 	favorite:
-		(JSON.parse(`${localStorage.getItem("favorite") || ""}`) as string[]) ||
+		(JSON.parse(`${localStorage.getItem("favorite") || "{}"}`) as string[]) ||
 		[]
 };
 

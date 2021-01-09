@@ -3,15 +3,4 @@
     width: 100%;
     justify-content: flex-end;
     font-size: 13px;
-    &__links {
-        margin-left: 20px;
-        &-button.mat-raised-button {
-            margin-left: 10px;
-        }
-    }
-    &__form {
-        &-field {
-            margin-left: 10px;
-        }
-    }
 }

@@ -61,11 +61,13 @@ export class ListingEffects {
 								prevCoin.current_price;
 							const percentDiff =
 								(amountDiff / prevCoin.current_price) * 100;
-							changes.push({
-								coin: updatedCoinData,
-								differencePercent: percentDiff,
-								differenceAmount: amountDiff
-							});
+								if(percentDiff > 0.5) {
+									changes.push({
+										coin: updatedCoinData,
+										differencePercent: percentDiff,
+										differenceAmount: amountDiff
+									});
+								}
 						}
 						return changes;
 					}, [] as CoinUpdate[]);
@@ -75,9 +77,7 @@ export class ListingEffects {
 				map((x) =>
 					x.map(
 						(item) =>
-							`${
-								item.coin.name
-							} (${item.coin.symbol.toUpperCase()}) has changed by ${item.differencePercent.toFixed(
+							`${item.coin.symbol.toUpperCase()} has changed by ${item.differencePercent.toFixed(
 								2
 							)}%`
 					)

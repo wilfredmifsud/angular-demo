@@ -10,7 +10,7 @@ import { Coin } from "./listing.model";
 export class ListingService {
 	constructor(private http: HttpClient) {}
 
-	getAll$(page = 1, limit = 20): Observable<Coin[]> {
+	getAll$(page = 1, limit = 200): Observable<Coin[]> {
 		const params = new HttpParams()
 			.set("vs_currency", "usd") // todo: change currency
 			.set("order", "market_cap_desc")

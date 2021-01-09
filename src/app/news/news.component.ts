@@ -25,7 +25,7 @@ export class NewsComponent implements OnDestroy {
 			.subscribe();
 	}
 
-	ngOnDestroy(): boifc {
+	ngOnDestroy() {
 		this.news$$.unsubscribe();
 	}
 }

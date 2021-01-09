@@ -1,0 +1,19 @@
+<div class="modal-content">
+    <div class="modal-header">
+        <h1>Login</h1>
+    </div>
+    <div class="modal-body">
+        <p>Login with the password: "letmein" and a username of your choice.</p>
+        <form [formGroup]="loginForm" (ngSubmit)="doLogin()" class="app-login__form-field">
+            <mat-form-field class="app-login__form-field">
+                <input type="text" matInput formControlName="username" placeholder="Username" />
+            </mat-form-field>
+            <mat-form-field class="app-login__form-field">
+                <input type="password" matInput formControlName="password" placeholder="Password (use letmein)" />
+            </mat-form-field>
+            <button mat-raised-button type="submit" color="accent" class="app-navigation-actions__links-button">
+                Login
+            </button>
+        </form>
+    </div>
+</div>

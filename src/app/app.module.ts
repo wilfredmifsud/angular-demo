@@ -30,6 +30,8 @@ import { sharedReducer } from "./shared/shared.reducer";
 import { FavoriteComponent } from "./listing/favorite/favorite.component";
 import { FavoriteListComponent } from "./listing/favorite-list/favorite-list.component";
 import { SidenavComponent } from "./navigation/sidenav/sidenav.component";
+import { defaultSimpleModalOptions, SimpleModalModule } from "ngx-simple-modal";
+import { ConfirmComponent } from "./auth/login/login.component";
 
 // todo move directives into shared, and import shared in all all mods
 @NgModule({
@@ -42,8 +44,10 @@ import { SidenavComponent } from "./navigation/sidenav/sidenav.component";
 		AuthenticatedDirective,
 		NewsComponent,
 		HomeComponent,
-		SidenavComponent
+		SidenavComponent,
+		ConfirmComponent
 	],
+	entryComponents: [ConfirmComponent],
 	imports: [
 		CommonModule,
 		BrowserModule,
@@ -61,7 +65,13 @@ import { SidenavComponent } from "./navigation/sidenav/sidenav.component";
 		NoopAnimationsModule,
 		MatModule,
 		SharedModule,
-		NavigationModule
+		NavigationModule,
+		SimpleModalModule.forRoot({container: 'modal-container'}, {...defaultSimpleModalOptions, ...{
+			closeOnEscape: true,
+			closeOnClickOutside: true,
+			animationDuration: 300,
+			autoFocus: true
+		  }})
 	],
 	providers: [],
 	bootstrap: [AppComponent]

@@ -1,26 +1,18 @@
 <mat-toolbar color="primary" class="app-toolbar">
-	<div class="app-navigation-toolbar__left">
-		<nav class="app-navigation-toolbar__nav">
-			<button
-				class="app-navigation-toolbar__nav-link app-navigation-toolbar__nav-link-burger"
-				mat-icon-button
-				(click)="triggerToggleSidenav()"
-			>
+    <div class="app-navigation-toolbar__left">
+        <nav class="app-navigation-toolbar__nav">
+            <button class="app-navigation-toolbar__nav-link app-navigation-toolbar__nav-link-burger" mat-icon-button (click)="triggerToggleSidenav()">
 				<mat-icon>menu</mat-icon>
 			</button>
 
-			<ng-container *ngFor="let link of links">
-				<a
-					class="app-navigation-toolbar__nav-link app-navigation-toolbar__nav-link"
-					[routerLink]="link.url"
-					routerLinkActive="app-navigation-toolbar__nav-link--active"
-				>
-					{{ link.title }}
+            <ng-container *ngFor="let link of links">
+                <a class="app-navigation-toolbar__nav-link app-navigation-toolbar__nav-link" [routerLink]="link.url" routerLinkActive="app-navigation-toolbar__nav-link--active">
+					{{ link.title | uppercase }}
 				</a>
-			</ng-container>
-		</nav>
-	</div>
-	<div class="app-navigation-toolbar__right">
-		<app-navigation-actions></app-navigation-actions>
-	</div>
+            </ng-container>
+        </nav>
+    </div>
+    <div class="app-navigation-toolbar__right">
+        <app-navigation-actions></app-navigation-actions>
+    </div>
 </mat-toolbar>
