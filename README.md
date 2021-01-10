@@ -13,6 +13,7 @@ The code / techniques used in this demo are not production grade. It's sole purp
 - Angular
 - HTML / SCSS
 - Redux with ngrx
+- rjxs
 
 ## Development server
 
